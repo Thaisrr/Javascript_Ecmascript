@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    /* ***** Le IF *****
+    Si ma condition est vrai alors -> instruction 1
+    sinon -> instruction 2
+     */
+
+    if (2367 > 989789) {
+        console.log('Youhouh');
+    } else {
+        console.log('Oh no !');
+    }
+
+    /* Si user_age est comprise en 13 (inclu) et 150
+        -> console.log ('login')
+      sinon
+        -> console.error('Nope')
+     */
+
+    function checkAge1() {
+        const user_age = prompt('Quel est votre âge');
+
+        if( (user_age >= 13) && ( user_age < 150) ) {
+            console.log('Login');
+        } else {
+            console.error('Nope !');
+        }
+    }
+
+    function checkAge2() {
+        const user_age = prompt('Quel est votre âge');
+
+        if(user_age <= 13) {
+            console.error('Vous être trop jeune');
+        } else if ( user_age > 150) {
+            console.error('Vous êtes mort.e !')
+        } else {
+            console.info('Welcome ! :) :) :) ')
+        }
+    }
+
+    checkAge2();
+
+    let a = 'toto';
+    let b = 50 - a;
+    console.log(b);
+
+    console.log( isNaN( +a ) );
+    // true si la string retourne NaN
+    // false si la string se converti bien en number
+
+    if( isNaN( +a) ) {
+        console.error('Impossible de faire l\'opération');
+    } else {
+        // on fait l'opération
+    }
+
+
+
+
+    
+    
+
+
+    
+
+
+
+
+</script>
+
+
+</body>
+</html>

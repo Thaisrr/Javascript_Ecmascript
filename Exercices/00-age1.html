@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<button onclick="start()">Ne cliquez pas ici !</button>
+
+<script>
+    function difference(a, b) {
+        return a - b;
+    }
+
+    function start() {
+        const username = prompt('Quel est votre nom ?');
+        const user_age = prompt(`Bonjour ${username}, quel est votre âge ?`);
+        // "Bonjour " + username + " quel est votre âge ? "
+
+        // Différence entre l'âge de user et celui de la QE
+        const queen_age = 95;
+        alert(`Vous avez ${ difference(queen_age, user_age) } années de différence avec la Elizabeth II`);
+        alert(`Vous avez ${ difference(42, user_age)} années de différence avec Toto`);
+    }
+
+
+    /*
+    fonction qui retourne la différence entre 2 nombres
+    Pour calculer la différence entre l'âge de user et QE on va appeler la fonction et lui passer les 2 âges
+
+     */
+
+
+
+</script>
+</body>
+</html>

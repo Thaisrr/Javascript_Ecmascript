@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Présentation</title>
+    <!-- <script src="monficher.js"></script> -->
+</head>
+<body>
+
+<h1>Présentation du JS</h1>
+
+<!-- Javascript :
+    - script : scénario d'événements qui s'éxécutent dans un ordre donné, en fonction d'événements
+    - Côté client :
+        - haut niveau ( plus proche user que de la machine )
+        - s'éxécute côté navigateur :
+            - moteurs : Chrome / Chromium : V8
+                        Firefox : spidermonkey
+
+
+   "vieux" langage : 1995
+        - Ecmascript : norme pour les langages de type script
+            ( Javascript, Typescript )
+            - ES6 : ecmascript 6, 2015
+
+   - Ecosystème de JS : ( framework )
+        - front : vueJS, Angular, React ( SPA : single page application )
+        - node.js
+            -> permet d'exécuter du JS en dehors du navigateur
+            -> permet de faire du js côté serveur, API
+            -> permet d'importer des librairies externes
+
+
+  Front : apparence / côté client
+  Back : côté serveur
+  ( CF : schéma )
+
+    Front :
+        - Demander des donnée
+        - "Manipuler" des données
+        - Appeler une API
+        - Afficher des données
+        - Gérer des événements
+        - Modifier la page
+        - ...
+
+      Ecrire du JS :
+        -> balise <script>
+                    - code
+                    - appelle un fichier .js
+-->
+
+<script>
+
+    /**
+      Ici : du Javascript
+     commentaire sur plusieurs lignes
+     **/
+
+    // Une seule ligne de commentaire
+
+
+
+    // Variables : enregistrer des données
+    /** Nom :
+            - Commence par une minuscule
+            - camelCase ou snake_case
+            - au choix, doit représenter ce que vous voulez enregistrer
+            ( user_birthdate  user_bdate u_birthdate... )
+            - anglais ( français sans caractères spéciaux )
+
+     mot clef : let
+     nom de variable
+      = (assigne une valeur )
+     valeur
+     point virgule (
+    **/
+
+
+    // obsoléte : va être déprécié ( depuis ES6 )
+    var hello = "Hello World !";
+    let name = "Thaïs";
+    const lastname = "Révillon";
+
+    // Const : constante : variable qu'on ne peut pas réattribuer
+    name = "Gaëtan";
+    // erreur : lastname = "Lannister";
+
+    /* Types de valeurs :
+    - Chaîne de caractères : string
+            char : 1 unique caractère, n'existe pas en JS
+
+     */
+
+    let a = "Ma string : c'est pratique si on veut mettre une apostrophe. Mais chiant pour \" les guillements\"";
+    // Backslash ( pour échapper ) : alt-gr + 8
+    a = 'Encore une string, c\'est peu pratique pour l\'utilisation d\'apostrophes ';
+    a = `Des quotes inversées : alt-gr + 7. C'est cool pour les apostrophes et "les citations"`;
+
+    // Concaténation : coller plusieurs string ensembles.
+    a = "Hello " + " World";
+    a = "Hello " + name; // name : variable name déclarée plus haut.
+    a = 'Hello ' + name + ", comment ça va ?";
+    a = `Hello ${name} !`;
+
+    // Afficher des éléments dans la console.
+    console.log("Hello en log !");
+    console.error("Hello en error !");
+    console.warn("Hello en warn");
+    console.info("Hello en info");
+
+    console.log(a);
+    console.log(name);
+    console.log("Nom de famille : " + lastname);
+
+    /***
+     * Number : int ( integer ), float, double, long....
+     * int : nombres entiers
+     * float / doubles : nombres à virgule
+     * float / double ou int / long : taille du nombre
+     *  en Java : 3 + 2.5 => ERROR
+     */
+    let b;
+    b = 2;
+    b = 2 + 3; // 5
+    console.log(b);
+    b = -2; // nombre négatif
+    b = 2.5;
+    console.log(b);
+
+    // String
+    const c = '1';
+    const d = 2;
+    let e = c + d;
+    console.log(e); // 12 puisque c est une string, donc js concatène.
+    e = +c + d; // +c change '1' en 1;
+    // change c en Number, et on additionne c et d;
+    console.log(e); // 3
+
+    const f = "toto";
+    e = +f + d; // valeur de e : NaN
+    console.log(e);
+    // NaN : Not a Number
+
+    let g = 1;
+    g = g + 1; // on ajoute 1 à la valeur de g
+    g++; // incrémentation : g = g + 1;
+    console.log(g); // 3
+    g--; // décrémentation : g = g - 1;
+
+    g = g + 2;
+    g += 2; // g = g + 2;
+    g -= 2;
+    g *= 2;
+    g /= 2;
+
+    /* Opérateurs :
+    = assignation de variable ( let machin = valeur, ou réassignation : machin = new valeur )
+    + addition OU concaténation si présence de string
+    - soustraction
+    * multiplication
+    / division
+    % modulo => retourne le reste d'une division
+     */
+
+    console.log( 10 % 5 );
+    // 10 / 5, retourne le reste de la division  : 0
+    console.log( 9 % 2 );
+    // 9 / 2 => 4 * 2 = 8, reste 1 pour faire 9
+    // Pour vérifier si un nombre est un multiple de x
+    // Nombre pair ? Dizaine ?....
+
+    /*
+     Boolean -> vrai ou faux
+        - condition est-ce que..... -> true ou false
+        - Existance
+     */
+
+    let h = true;
+    h = false;
+    /*
+    Opérateurs de condition :
+    Comparer 2 valeurs :
+        Est-ce que la valeur est :
+            === égale à
+            !== différente de
+            >  strictement supérieur à
+            < strictement inférieur à
+            >= supérieur ou égale à
+            <= inférieur ou égale à
+
+            && et ( deux ou plus conditions doivent être vraies )
+            || ( alt-gr 6 ) l'une ou l'autre des conditions soient vraies
+            !boolean => retourne true si le booléan testé est faux,
+                        retourne false si le booléan testé est vrai
+
+     */
+    h = 5 > 10; // false
+    console.log(h); // false
+
+    h = d === g; // false
+    console.log(h);
+    g = 2;
+    h = g === 2; // true
+    console.log(h);
+    // condition : age_user doit être compris entre 13 et 150
+    const age_user = 50;
+    let old_enough = age_user >= 13 ;
+    let not_dead = age_user < 150;
+    let can_login = (age_user >= 13) && (age_user < 150);
+    can_login = (old_enough === true) && (not_dead === true);
+    can_login = old_enough && not_dead;
+    // Trois façons différentes d'écrire la même chose
+    let error_login = (age_user < 13) || (age_user >= 150);
+    error_login = !can_login;
+    // can_login === false ?
+
+    // Si l'une des deux conditions est vraie, user n'a pas l'âge requis pour se connecter.
+
+    // Il faut que les 2 conditions soient vraies pour que can_login soit vrai
+    console.log(can_login);
+    /*
+    age_user =
+        50 => true
+        13 => true
+        150 => false
+        12 => false
+        170 => false
+     */
+
+    let toto;
+    console.log(toto);
+    /*
+    null ou undefined
+        -> pas de valeur
+        -> JS par défaut va renvoyer undefined quand une variable n'a pas de valeur
+        ->
+     */
+
+    let exist = toto !== undefined;
+    let not_exist = !toto;
+
+    /* !toto => retourne true si toto n'existe pas ( si toto === undefined )
+            => retourne false si toto existe et a une valeur  ( si toto !== undefined )
+     */
+
+    console.log('Toto existe ? ' + not_exist);
+    console.log('Toto n\'existe pas ? ', exist);
+
+    1 + 2; // ligne inutile car résultat perdu
+    const result =1 + 2; // On enregistre le résultat dans une variable
+
+    alert('Attention !!! Ceci est un message');
+
+    const confirmation = confirm('Voulez vous appuyer sur le gros bouton rouge et détruire le monde ?');
+    // confirmation = true ( ok ) ou false ( annuler )
+
+    const answer = prompt('Comment ça va ?');
+    // retourne une chaîne de caractères ( string )
+
+    /*
+    Exercice : fin : 14h30
+    --------
+
+    1. Demander son nom à l'utilisateur.trice
+    2. On le/la salue et on demande son âge
+    3. On lui donne sa différence d'âge avec la reine d'Angleterre ( 95 ans )
+     */
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
