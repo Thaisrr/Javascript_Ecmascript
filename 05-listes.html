@@ -108,6 +108,93 @@
     numbers.sort();
     console.log(numbers);
 
+    const notes = [2, 7, 4, 20, 12, 17, 16];
+
+    // filter : créer une copie du tableau, en récupérant les éléments qui
+    // réponde à une condition donnée
+
+    const clean = notes.filter(el => !isNaN(+el) || el >= 0 || el <= 20);
+    const good =  clean.filter( el => el >= 10 );
+    const bad = clean.filter( el => el < 10 );
+
+
+    /***** Point mémoire ***********/
+    // Règle valable pour les booléans, les strings, numbers
+
+    let a = 'Coucou';
+    let b = a;
+    console.log(a, b); // Coucou, Coucou
+
+    b = 'Hello';
+    console.log(a, b); // Coucou, Hello
+
+    a = 'Machin';
+    console.log(a, b); // Machin Hello
+
+    /****************************/
+    /* **        0           1           2         3      ***/
+    let c = ['Jon Snow', 'Hodor', 'Arya Stark'];
+    let d = c; // Ce n'est pas une copie !
+    let e = Array.from(c); // copie
+    let f = [...c]; // copie
+    console.log(c[2], d[2]); // Arya Stark, Arya Stark
+    console.log(c[3], d[3]); // undefined undefined
+
+    c.push('Cercei Lannister');
+    /* *** ['Jon Snow', 'Hodor',  'Arya Stark', 'Cercei Lannister' ] */
+    console.log(c[3], d[3]); // Cercei Lannister
+    d.push('Greyjoy');
+    console.log(c[4], d[4]);
+    d.splice(4, 1);
+    console.log(c);
+    console.log(d);
+    console.log(e);
+
+
+    /*** Décomposition ****/
+
+    // spread operator
+    let lst1 = ['Hello', 'World'];
+    let lst2 = ['Bonjour', 'Holà', ...lst1];
+
+    // Nombre de paramètres variable
+    function sayHello(...names) {
+        // name : tableau
+        console.log('Bonjour ' + names.join(', '));
+    }
+    sayHello('Jean Michel', 'Machin', 'Truc');
+
+       let i = 'toto';
+       let j  = 'titi';
+       /*
+       i = j
+       j = i
+        */
+     let k = j;
+     j = i;
+     i = k;
+    [i, j] = [j, i];
+
+    const lst3 = ['Jean Michel', 'Karim', 'Nadia'];
+    const [jm, ...reste] = lst3;
+    const [jm2, ka, n] = lst3;
+
+    console.log(jm); // Jean Michel ( string )
+    console.log(reste); // Tableau avec Karin, Nadia
+
+    console.log(jm2, ka); // 2 strings
+
+
+
+
+
+
+
+
+
+
+
+
 </script>
 
 </body>

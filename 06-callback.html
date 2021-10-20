@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback et fonctions anonymes</title>
+</head>
+<body>
+
+<script>
+    // fonction classique
+
+    function classique() {
+        console.log('Une fonction classique')
+    }
+
+    // Les fonctions anonymes
+
+    const anonyme = function () {
+        console.log('Je suis anonyme')
+    };
+    anonyme();
+    classique();
+
+    // Les fonctions fléchées -> ES6
+    // Attention à l'utilisation de "this"
+
+    const flechee = () => {
+        console.log("Je suis une fonction fléchée");
+    };
+    flechee();
+
+    function sum1(a, b) {
+        return a + b;
+    }
+    // Sur 1 seule ligne, le retour est implicite
+    const sum2 = (a, b) => a + b;
+    const addS = a => a += 's';
+
+
+    // Attention, sur plusieurs lignes, il faut remettre les {} et le mot clef retour
+
+    console.log( sum2(34, 78) );
+    const socks = 'chaussette';
+    console.log(`J'ai des belles ` + addS(socks));
+
+    /*** Utilisation **********************/
+
+    const liste = ['Tomates', 'Fraises', 'Haricots'];
+
+    // 3eme façon de parcourir les listes
+
+    function afficher(el) {
+        console.log(el);
+    }
+
+    liste.forEach( afficher );
+    /* pour chaque élément de la liste,
+    on va appeler la fonction afficher
+    Le paramètre attendu "el" va s'appeler automatique
+     */
+
+    // Le forEach fait ça :
+    for(let i = 0; i < liste.length; i++) {
+        afficher(liste[i]);
+    }
+
+    liste.forEach( function (el) {
+        console.log(el)
+    });
+
+
+
+    liste.forEach( toto => console.log('Mon element est ', toto) );
+
+    liste.forEach(el => {
+        // si plusieurs lignes à mettre
+        console.log(el);
+    } );
+
+    // Le forEach est capable de renseigner 2 paramètres :
+    // - l'élément de l'itération en cours ( liste[i] )
+    // - l'index de l'élément ( i ) ( optionnel )
+    // - le tableau ( optionnel et jamais utilisé )
+
+    const notes = [2, 7, 4, 20, 12, 17, 16];
+
+    // filter : créer une copie du tableau, en récupérant les éléments qui
+    // réponde à une condition donnée
+
+    const clean = notes.filter(el => !isNaN(+el) || el >= 0 || el <= 20);
+    const good =  clean.filter( el => el >= 10 );
+    const bad = clean.filter( el => el < 10 );
+
+
+
+
+
+
+</script>
+</body>
+</html>
