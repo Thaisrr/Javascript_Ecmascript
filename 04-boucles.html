@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    /*** Les boucles ***************/
+
+    /*
+    Pour
+    - itérateur / Compteur initialisé à 0
+        - a chaque itération / à chaque boucle on incrémente le compteur ( on ajoute + 1 )
+    - On arrête la boucle quand le compteur atteint un certain nombre de tours
+
+    - let i = 0;
+    - i++ ( i = i + 1 )
+    - i < 10
+     */
+
+    // initialise le compteur
+    // on donne la condition
+    // on incrémente
+    for (let i = 10; i > 0; i--) {
+        console.log('Tour n°' + i);
+        console.log('Coucou !');
+    }
+    // ici i n'existe plus
+    // On utilise le for quand on veut faire une action un nombre connu de fois
+
+
+
+    /* While :
+    tant que
+    -> tant que ma condition est vrai, on fait les instructions
+    -> Attention, la condition doit pouvoir changer !
+     */
+
+    let j = 0;
+    while (j < 5) {
+        console.log('Dans le while');
+        j++;
+    }
+
+
+    let continuer = true;
+    // Tant que continuer === true
+    while (continuer) {
+        console.log('On continue !');
+        continuer = confirm('Continuer ?');
+        /*
+         Confirm : boîte de dialogue qui retourne true si user appuie sur "ok",
+         et false si user appuie sur "annuler"
+         */
+    }
+
+    /*
+    Do while
+    Fait *instruction*, tant que condition est vraie
+     */
+
+    do {
+        console.log('Hello from do while !');
+    } while ( confirm('Recommencer ?') );
+
+
+    let k = 1;
+    do {
+        console.log(`Faites ${k} pompe(s) !` );
+        k++;
+    } while (k <= 10);
+
+
+</script>
+</body>
+</html>

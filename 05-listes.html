@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Les listes</title>
+</head>
+<body>
+
+<script>
+
+    // Liste de strings
+    let courses = ['Mangues', 'Gâteaux', 'PQ', 'Liquide Vaisselle', 'Carottes', 'Casque' ];
+    console.log(courses);
+    console.log(`il y a ${courses.length} élément(s) dans ma liste`);
+
+    // Les listes ont des méthodes : des fonctions associées au type ( objet ) Array ( tableau / liste )
+    // Pour appeler ces méthodes, on utilise un point, suivi du nom de la méthode
+
+    //Chaque item de la liste est associée à un index unique,
+    // Le premier item est associé à l'index 0 ( zéro )
+    // Le deuxième, à l'index 1, et ainsi de suite
+
+    console.log( 'Premier item de la liste ( index 0 ) : ' + courses[0] );
+    courses[0] = 'Clémentines';
+    console.log( courses );
+
+    /*
+    Je veux parcourir ma liste:
+        -> je veux afficher chacun de mes items, individuellement
+        -> console.log ( item )
+     */
+
+    const length = courses.length;
+
+    // Si besoin de l'index, ou de modifier des éléments
+    for(let i = 0; i < length; i++) {
+        courses[i] += ' 1';
+        console.log(`Item numéro ${i} : ${ courses[i] }`)
+    }
+    console.log(courses);
+
+
+    // For pour les listes :
+    // Protège le tableau et empêche sa modification
+    for( let item of courses) {
+        item += ' 2';
+        console.log('Item : ' + item);
+    }
+    console.log(courses);
+
+
+/*** Modification de liste : */
+
+    // Ajouter des éléments à la fin de la liste
+    courses.push('Croquettes pour chat');
+    console.log(courses);
+    courses.push('Litière', 'Fraises', 'Chocolat');
+
+
+    // Récupérer un index
+    // Si l'élément d'existe pas, retourne -1
+    const index_fraises = courses.indexOf('Fraises');
+    const index_tagadas = courses.indexOf('Fraises Tagadas');
+    console.log(`Index des fraises : ${index_fraises}; index des tagadas : ${index_tagadas}`);
+
+    if(index_tagadas === -1) {
+        courses.push('Fraises Tagadas');
+    }
+
+    // Si j'ai bien des fraises dans mon tableau
+    if(index_fraises !== -1) {
+        courses[index_fraises] = 'Framboises';
+    } else {
+        console.log(`Il n'y avait pas de fraise dans le tableau`);
+        courses.push('Framboises');
+    }
+
+
+    console.log(courses);
+    /* Supprimer des éléments de ma liste */
+
+    /**
+     * @param 1 : index de l'élément à supprimer
+     * @param 2 : nombre d'élément à supprimer à partir de cet index
+     * @param 3: item à ajouter à cet index
+     **/
+    courses.splice(0, 2); // Supprimer clémentine et gâteaux
+    console.log(courses);
+
+    courses.splice(0, 1, 'Cookies'); // Supprime PQ et ajoute Cookie à l'index 0
+    console.log(courses);
+
+    // Pas de suppression, mais un décalage, avec ajout de nouveaux items
+    courses.splice(3, 0, 'Abricots', 'Patates');
+    console.log(courses);
+
+
+
+    // Inversé l'ordre d'un array
+    courses.reverse();
+    console.log(courses);
+
+    // Tri les éléments par ordre alphabétique
+    courses.sort();
+    console.log(courses);
+
+    const numbers = [2, 20, 10, 12, 5, 3];
+    numbers.sort();
+    console.log(numbers);
+
+</script>
+
+</body>
+</html>

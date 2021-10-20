@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exo 3</title>
+</head>
+
+<body>
+
+<button onclick="buttonhome()">Cliquez ici</button>
+
+
+<script>
+
+
+    function buttonhome() {
+
+        const answer1 = prompt(`Bienvenue ! Dis-moi, quel âge as-tu ?`);
+        //  '95' ne peut pas être égale à 95
+        // answer1 + 5 => 955
+        // answer1 - 5 => 90
+        if( +answer1 === 95 ) { // vérifie la valeur et le type
+            alert(`Ça alors, vous avez le même âge que la reine d'Angleterre Elizabeth II ! (et vous êtes vieux)`);
+        } else if (answer1 < 95) {
+            alert(`Eh bien vous êtes plus jeune que la reine d'Angleterre !`);
+        } else if (answer1 > 95) {
+            alert(`Wouah ! Vous êtes sacrément vieux ! Même plus que la reine d'Angleterre !`);
+        }
+    }
+
+
+
+
+</script>
+
+
+
+</body>
+
+</html>

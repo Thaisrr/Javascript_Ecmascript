@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+-> Vous recevez un tableau avec les notes des élèves
+- Nettoyer le tableau ( enlever tout ce qui n'est pas note entre 0 et 20 )
+-> Trier les notes en 2 tableaux :
+    - 1 tableau pour les notes au dessus de la moyenne ( 10 et + )
+    - 1 tableau pour les notes en dessous de la moyenne
+( Pas besoin de trier ces tableaux par ordre croissant ni décroissant )
+
+-->
+
+<script>
+    //const notes = [2, 20, 200, 8, 20, 18, 17, 45, 0, 7, 12, 15, 8, 10, 9.5, 200, -2, 200, 0.5];
+    const notes = [2, 20, 200, 8, 0.5, 20, "Hodor", 18, 17, 45, -2, 0, 7 ,12, 15, 8, 10, 9, 20];
+    const good = [];
+    const bad = [];
+
+    function cleanGrades( lst ) {
+        // On commence la boucle par le dernier item
+        for(let i = lst.length -1; i >= 0; i--) {
+            const el = lst[i];
+            // pas une note -> on supprime
+            if( isNaN(+el) || +el > 20 || +el < 0 ) {
+                lst.splice(i, 1);
+            } else { // C'est une note
+                if (el >= 10) {
+                    good.push(el);
+                } else {
+                    bad.push(el);
+                }
+            }
+        }
+        return lst; // retour de la liste nettoyée
+    }
+
+    function getMoyenne( lst ) {
+        let sum = 0;
+        for(let el of lst) {
+            sum += el;
+        }
+        return  sum / lst.length;
+    }
+
+
+    const clean = cleanGrades(notes);
+    console.log('clean : ');
+    console.log(clean);
+    console.log("good");
+    console.log(good);
+    console.log("bad");
+    console.log(bad);
+    console.log('Moyenne : ', getMoyenne(clean));
+
+</script>
+
+</body>
+</html>

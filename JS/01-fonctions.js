@@ -61,5 +61,13 @@ console.log(result1 / result2);
 console.log( sum(result1, result2) );
 
 
+/*
 
+ */
 
+const name = prompt('Entrez votre nom de famille');
+// mettre name en majuscule
+
+function majuscule() {
+    
+}

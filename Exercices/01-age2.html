@@ -17,6 +17,87 @@
            -> calcule + jeune / + vieux
 
 -->
+<h1>Comparez votre âge !</h1>
+<button onclick="queenEngland()">Reine d'Angleterre</button>
+<button onclick="dumbledore()">Dumbledore</button>
+
+<script>
+    /* Tant que l'user n'a pas entré un nombre valide,
+    on lui redemande son âge, on revérifie l'âge
+
+    -> Une fonction peut s'appeler elle même
+    */
+
+        function queenEngland() {
+            const user_age = prompt('Entrez votre âge');
+            const isValid = isAgeValid(user_age);
+            if(isValid) {
+                isYounger(user_age, 95, 'Reine Elizabeth II');
+            }
+        }
+
+        // Condition : isAgeValid(user_age) ( return boolean )
+        // Instruction à répéter : prompt
+
+        /* Quelle boucle :
+                - For
+                    Est-ce que je souhaite répéter mon instruction un nombre de fois connu ?
+                    -> NON, donc pas for
+
+                - while ou do while ?
+                    -> Est-ce que je veux executer mon instruction au moins 1 fois, hors condition ?
+                    -> Ou est-ce que je veux vérifier ma condition dès le début ?
+                -> Au moins une fois, donc do while
+    */
+        function dumbledore() {
+            let user_age;
+            do {
+                user_age = prompt('Entrez votre âge');
+            } while ( !isAgeValid(user_age)  );
+            // isAgeValid(user_age) === false
+            // Quand on sort du while, c'est que l'âge est valide
+            isYounger(user_age, 116, 'Dumbledore');
+        }
+
+
+        function isYounger(u_age, x_age, name) {
+            if(u_age < x_age) { // Est-ce user plus jeune ?
+                alert(`Vous êtes plus jeune ` + name);
+            } else if (u_age > x_age) { // Est-ce que user plus vieux ?
+                alert(`Vous êtes plus vieux / vieille ` + name);
+            } else { // Dernier cas : même âge
+                alert('Vous avez le même âge ' + name)
+            }
+        }
+
+        /**
+         * @param u_age
+         * @returns {boolean}
+         *  -> false si l'âge n'est pas valide
+         *  -> true si l'âge est valide
+         */
+        function isAgeValid(u_age) {
+            /* Cas d'erreur :
+                 // pas un number
+                 // âge trop haut
+                 // âge trop bas ( négatif )
+             */
+            if( isNaN(+u_age) ) {
+                alert('Veuillez entrer un nombre au format numérique');
+                return false; // fin de fonction
+            } else if(u_age > 150 || u_age < 0) {
+                alert('Veuillez entrer un âge valide');
+                return false; // fin de la fonction
+            }
+            // Je ne rentre dans aucun des cas d'erreur,
+            // âge valide, donc je retourne "true"
+            return true;
+        }
+
+
+
+</script>
+
 
 </body>
 </html>
